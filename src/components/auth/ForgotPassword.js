@@ -11,7 +11,7 @@ class ForgotPassword extends Component {
     this.state = { email: "" };
   }
   somaiyaEmail = () =>
-    this.state.email.match(/^\w+([\.-]?\w+)*@somaiya\.edu$/) ? true : false;
+    this.state.email.match(/^\w+([.]?\w+)*@somaiya\.edu$/) ? true : false;
   handleChange = (event) => {
     const { target } = event;
     this.setState({ [target.name]: target.value }, () => {
@@ -74,6 +74,12 @@ class ForgotPassword extends Component {
               <h1 className="text-left">Forgot Password</h1>
             </div>
             <div className="form-group">
+              <small className="form-text">
+                Password reset link will be sent to the entered somaiya email
+                address.
+              </small>
+            </div>
+            <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
                 type="email"
@@ -111,7 +117,7 @@ class ForgotPassword extends Component {
             </div>
           </form>
           <div
-            className="bg d-none d-xl-block"
+            className="bg"
             style={{ backgroundImage: `url(./${GIF})`, opacity: "30%" }}
           ></div>
         </div>

@@ -31,9 +31,9 @@ body {
   min-height: 100%;
   min-width: 100%;
 
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
 
   z-index: -1;
 
@@ -42,4 +42,31 @@ body {
 
 ::selection {
   background-color: #ffd3b6;
+}
+
+.loading-screen {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  .loading {
+    display: block;
+    z-index: -1;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    filter: blur(0.1em);
+
+    background-image: url(./Loading.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    min-width: 100%;
+    min-height: 100%;
+  }
 }

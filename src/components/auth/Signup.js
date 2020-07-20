@@ -25,7 +25,7 @@ class Signup extends Component {
     };
   }
   somaiyaEmail = () =>
-    this.state.email.match(/^\w+([\.-]?\w+)*@somaiya\.edu$/) ? true : false;
+    this.state.email.match(/^\w+([.]?\w+)*@somaiya\.edu$/) ? true : false;
   securePassword = () =>
     this.state.password.match(
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,256}$/

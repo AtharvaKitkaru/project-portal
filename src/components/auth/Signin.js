@@ -10,7 +10,7 @@ class Signin extends Component {
     this.state = { email: "", password: "" };
   }
   somaiyaEmail = () =>
-    this.state.email.match(/^\w+([\.-]?\w+)*@somaiya\.edu$/) ? true : false;
+    this.state.email.match(/^\w+([.]?\w+)*@somaiya\.edu$/) ? true : false;
   handleChange = (event) => {
     const { target } = event;
     this.setState({ [target.name]: target.value }, () => {
@@ -43,7 +43,17 @@ class Signin extends Component {
         .signInWithEmailAndPassword(this.state.email, this.state.password)
         .then(({ user }) => {
           if (user.emailVerified) {
-            // Check user type and redirect accordingly
+            const userDocRef = app
+              .firestore()
+              .collection("users")
+              .doc(user.uid);
+            userDocRef.get().then((doc) => {
+              if (doc.data().emailVerified === false) {
+                userDocRef.update({
+                  emailVerified: true,
+                });
+              }
+            });
           } else {
             app
               .auth()
