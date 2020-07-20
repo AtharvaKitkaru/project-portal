@@ -11,6 +11,8 @@ import Authenticator from "./components/auth/Authenticator";
 import App from "./App";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 
+// todo: add assignment search page. profile image.
+
 app.auth().onAuthStateChanged((user) => {
   if (user && user.emailVerified) {
     ReactDOM.render(

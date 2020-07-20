@@ -1,16 +1,20 @@
 import React from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
-import app from "../../Firebase";
+import AssignmentList from "./AssignmentList";
+import { Route } from "react-router-dom";
+import Assignment from "./Assignment";
+import Profile from "./profile/Profile";
 
 const StudentRoutes = () => {
   return (
-    <BrowserRouter>
+    <div className="noselect">
       <Route
-        path={["/signin", "/signup", "forgot-password"]}
-        render={() => <Redirect to="/" />}
+        exact
+        path={["/", "/assignment-list"]}
+        component={AssignmentList}
       />
-      <div onClick={() => app.auth().signOut()}>Sign out</div>
-    </BrowserRouter>
+      <Route path="/assignment/:id" component={Assignment} />
+      <Route path="/profile" component={Profile} />
+    </div>
   );
 };
 

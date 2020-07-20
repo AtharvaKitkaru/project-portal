@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import app from "./Firebase";
 import Loading from "./Loading";
 import Error from "./Error";
+import StudentRoutes from "./components/student/StudentRoutes";
 
 class App extends Component {
   constructor(props) {
@@ -24,18 +25,7 @@ class App extends Component {
     if (this.state.loading) return <Loading />;
     if (this.currentUserData.exists)
       if (this.currentUserData.data().userType === "student")
-        return (
-          <div className="App min-vh-100 bg-light">
-            <h1>App</h1>
-            <button
-              className="btn btn-dark"
-              onClick={() => app.auth().signOut()}
-            >
-              Sign out
-            </button>
-            <p>{JSON.stringify(this.currentUserData.data())}</p>
-          </div>
-        );
+        return <StudentRoutes />;
       else if (this.currentUserData.data().userType === "guide") return "Guide";
       else if (this.currentUserData.data().userType === "admin") return "Admin";
       else if (this.currentUserData.data().userType === "lab_assistant")
