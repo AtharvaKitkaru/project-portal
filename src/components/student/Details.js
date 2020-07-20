@@ -5,7 +5,10 @@ class Details extends Component {
   render() {
     return (
       <div id="Details" className="bg-white shadow-sm rounded p-3">
-        <h3 className="">{this.props.assignmentData.title}</h3>
+        <h3 className="">
+          {this.props.assignmentData.title}
+          <span className="badge badge-primary ml-2">Graded</span>
+        </h3>
         <hr />
         <div className="desc">{this.props.assignmentData.description}</div>
         <div className="submissionData d-flex flex-xl-row flex-column mx-auto justify-content-between py-3">

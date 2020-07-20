@@ -52,7 +52,7 @@ class CommentSection extends React.Component {
         className="row bg-white shadow-sm rounded my-3 mx-auto"
       >
         <div className=" col-12 mx-auto pt-md-4 py-2 h5">
-          <div className="col-12 mx-auto text-center">CommentSection</div>
+          <b className="d-block text-center">Comments</b>
         </div>
         <form
           id="comment-form"

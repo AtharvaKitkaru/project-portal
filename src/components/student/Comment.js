@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import app from "../../Firebase";
 
 export class Comment extends Component {
   render() {
@@ -12,7 +13,7 @@ export class Comment extends Component {
             <div className="d-flex ">
               <div className="p-1">
                 <img
-                  src="/assets/images/user.jpeg"
+                  src={`${app.auth().currentUser.photoURL}`}
                   className="rounded-circle"
                   width={50}
                   height={50}

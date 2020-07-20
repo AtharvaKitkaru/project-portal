@@ -11,7 +11,7 @@ import Authenticator from "./components/auth/Authenticator";
 import App from "./App";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 
-// todo: add assignment search page. profile image.
+// todo: add assignment search page. profile image defaults and in database as well for comment section.
 
 app.auth().onAuthStateChanged((user) => {
   if (user && user.emailVerified) {
